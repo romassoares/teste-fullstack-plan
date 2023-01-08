@@ -13,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,24 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:100',
+            'description' => 'required|min:3|max:500',
+            'voltage'=> 'required|numeric',
+            'brand_id' => 'required'
         ];
     }
+    public function messages()
+        {
+            return [
+                'name.required' => 'O nome é obrigatório',
+                'name.min'=>'mínimo de 3 caracteres.',
+                'name.max'=>'máximo de 100 caracteres.',
+                'description.required' => 'A descrição é obrigatória.',
+                'description.min'=>'mínimo de 3 caracteres.',
+                'description.max'=>'máximo de 500 caracteres.',
+                'voltage.required' => 'A voltagem é obrigatória.',
+                'voltage.numeric' =>'digite apenas números.',
+                'brand_id.required' => 'A Marca é obrigatória.',
+            ];
+        }
 }

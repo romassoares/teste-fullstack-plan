@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategorySeeder extends Seeder
+class BrandSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -23,7 +23,7 @@ class CategorySeeder extends Seeder
         ];
 
         foreach ($itens as $key => $item) {
-            DB::table('categories')->insert(
+            DB::table('brands')->insert(
                     [ 'description' => $item]
                 );
         };
